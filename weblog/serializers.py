@@ -3,7 +3,7 @@ from .models import Post,Category,Comment
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','title','category','body','author','is_enabled', 'created_time','status','likes',)
+        fields=('id','title','category','body','author','is_enabled', 'created_time','status','likes','dislikes',)
         model=Post
 
 

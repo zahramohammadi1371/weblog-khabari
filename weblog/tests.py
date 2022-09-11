@@ -66,7 +66,21 @@ class weblogTests(TestCase):
 
      
 
+#    self.Product= Product.objects.create(
+#            name = 'product name',
+#            price='product price',
+#            available='product available',
+           
+#         )
+        
+#     def test_string_model(self):
+#         post = Product(name='hello ')
+#         self.assertEqual(str(product),product.name)
 
+#     def test_post_model(self):
+#         self.assertEqual(f"{self.product.name}", "product name")
+#         self.assertEqual(f"{self.product.price}", "product price")
+#         self.assertEqual(f"{self.product.available}", "product available")
 
       
        

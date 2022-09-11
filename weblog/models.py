@@ -1,4 +1,5 @@
 
+from csv import writer
 from msilib.schema import Feature
 from pydoc import describe
 from sre_constants import CATEGORY
@@ -7,6 +8,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _ 
 from django.conf import settings
 from django.contrib.auth.models import User
+
 
 
 
@@ -45,6 +47,7 @@ class Post(models.Model):
     publish_time=models.DateTimeField(verbose_name=_("publish_time"),null=True,blank=True)
     Featured=models.BooleanField(verbose_name=_("Featured"),null=True)
     likes=models.ManyToManyField(User,related_name="bloglikes",blank=True)
+    dislikes=models.ManyToManyField(User,related_name="blogdislikes",blank=True)
 
 
 
@@ -61,6 +64,11 @@ class Post(models.Model):
       
 class Comment(models.Model):
     Post=models.ForeignKey(Post,on_delete=models.CASCADE)
-    text=models.TextField()
+    text=models.TextField(verbose_name=_('text'))
+    
     # created_time=models.DateTimeField(auto_now_add=True)
     # updated_time=models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name=_("comment")
+        verbose_name_plural=_("comments")
